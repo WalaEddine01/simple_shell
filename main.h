@@ -18,6 +18,8 @@ char *_strcpy(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
 char *_strdup(char *str);
 void _puts(char *str);
-
+void _getline(char **lineptr, size_t s, FILE *stream);
+void _fork(char *stk[], char *av[], char *line);
+void _strtok(char *line, char *stk[]);
 
 #endif
