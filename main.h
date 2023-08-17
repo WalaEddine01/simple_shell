@@ -20,6 +20,6 @@ char *_strdup(char *str);
 void _puts(char *str);
 char *_getline(char *lineptr, size_t s, FILE *stream);
 void _fork(char *stk[], char *av[], char *line);
-char *_strtok(char *line, char *stk[]);
+char **_strtok(char *line, char *stk[]);
 
 #endif
