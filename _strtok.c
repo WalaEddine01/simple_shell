@@ -5,18 +5,19 @@
  * @stk: array of string
  * Return: pointer to the first token found
 */
-char *_strtok(char *line, char *stk[])
+char **_strtok(char *line, char *stk[])
 {
-	char *token;
-	int i = 0;
+        char *token;
+        int i = 0;
 
-	token = strtok(line, " ");
-	while (token)
-	{
-		stk[i] = token;
-		token = strtok(NULL, " ");
-		i++;
-	}
-	i = 0;
-	return (*stk);
+        token = strtok(line, " ");
+        while (token)
+        {
+                stk[i] = token;
+                token = strtok(NULL, " ");
+                i++;
+        }
+        i = 0;
+        return (stk);
 }
+

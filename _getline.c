@@ -8,23 +8,27 @@
  */
 char *_getline(char *lineptr, size_t s, FILE *stream)
 {
-	char *line = NULL;
-	ssize_t read;
+        char *line = NULL;
+        ssize_t read;
 
-	read = getline(&line, &s, stream);
-	if (read == -1)
-	{
-	        if (feof(stream))
-	        {
-		  free(line);
-		  exit(0);
-	        }
-		perror("getline");
-		exit(1);
-	}
-	if (line[read - 1] == '\n')
-	{
-		line[read - 1] = '\0';
-	}
-	return (line);
+        read = getline(&line, &s, stream);
+        if (read == -1)
+        {
+                perror("getline");
+                exit(1);
+        }
+        if (line[read - 1] == '\n')
+        {
+                line[read - 1] = '\0';
+        }
+        lineptr = malloc(_strlen(line) + 1);
+        if (line == NULL)
+        {
+                perror("malloc");
+                exit(1);
+        }
+        _strcpy(lineptr, line);
+        free(line);
+        return (lineptr);
 }
+
