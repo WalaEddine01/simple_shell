@@ -8,13 +8,14 @@
 */
 void _fork(char *stk[], char *av[], char *line)
 {
+	char **environ;
 	pid_t pid;
 	int a;
 
 	pid = fork();
 	if (pid == 0)
 	{
-		execve(stk[0], av, NULL);
+		execve(stk[0], av, environ);
 		perror("execve");
 		free(line);
 		exit(1);
