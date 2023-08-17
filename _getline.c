@@ -11,7 +11,7 @@ char *_getline(char *lineptr, size_t s, FILE *stream)
 	char *line = NULL;
 	ssize_t read;
 
-	read = getline(&line, &s, stream);
+	read = getline(&line, &s, stdin);
 	if (read == -1)
 	{
 		perror("getline");
@@ -26,6 +26,7 @@ char *_getline(char *lineptr, size_t s, FILE *stream)
 	if (lineptr == NULL)
 	{
 		perror("malloc");
+		free(line);
 		exit(1);
 	}
 	_strcpy(lineptr, line);

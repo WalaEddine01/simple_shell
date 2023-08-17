@@ -8,7 +8,7 @@
 */
 void _fork(char *stk[], char *av[], char *line)
 {
-	char **environ;
+	extern char **environ;
 	pid_t pid;
 	int a;
 
@@ -17,13 +17,11 @@ void _fork(char *stk[], char *av[], char *line)
 	{
 		execve(stk[0], av, environ);
 		perror("execve");
-		free(line);
 		exit(1);
 	}
 	else if (pid < 0)
 	{
 		perror("fork");
-		free(line);
 		exit(1);
 	}
 	else
