@@ -16,8 +16,6 @@ int main(void)
 		_puts("$ ");
 		line = _getline(line, s, stdin);
 		_strtok(line, stk);
-		if (_strcmp(stk[0], "exit") == 0)
-			break;
 		_fork(stk, av, line);
 	}
 	free(line);
