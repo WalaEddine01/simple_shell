@@ -14,6 +14,11 @@ char *_getline(char *lineptr, size_t s, FILE *stream)
 	read = getline(&line, &s, stream);
 	if (read == -1)
 	{
+	        if (feof(stream))
+	        {
+		  free(line);
+		  exit(0);
+	        }
 		perror("getline");
 		exit(1);
 	}
@@ -21,6 +26,5 @@ char *_getline(char *lineptr, size_t s, FILE *stream)
 	{
 		line[read - 1] = '\0';
 	}
-	lineptr = line;
-	return (lineptr);
+	return (line);
 }
