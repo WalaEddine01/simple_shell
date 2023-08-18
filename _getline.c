@@ -2,8 +2,6 @@
 /**
  * _getline - write a line in lineptr
  * @lineptr: line pointer
- * @s: s size of line
- * @stream: stream of line to read
  * Return: None
  */
 char *_getline(char *lineptr)

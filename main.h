@@ -21,5 +21,6 @@ void _puts(char *str);
 char *_getline(char *lineptr);
 void _fork(char *stk[], char *av[], char *envp[], char *argv[]);
 char **_strtok(char *line, char *stk[]);
+void _fork2(char *stk[], char *av[], char *envp[], char *argv[]);
 
 #endif
