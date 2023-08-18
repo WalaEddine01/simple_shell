@@ -6,17 +6,16 @@
  * @line: line to free
  * Return: None
 */
-void _fork(char *stk[], char *av[], char *line)
+void _fork(char *stk[], char *av[], char *envp[], char *argv[])
 {
-	extern char **environ;
 	pid_t pid;
 	int a;
 
 	pid = fork();
 	if (pid == 0)
 	{
-		execve(stk[0], av, environ);
-		perror("execve");
+		execve(stk[0], av, envp);
+		perror(argv[0]);
 		exit(1);
 	}
 	else if (pid < 0)
