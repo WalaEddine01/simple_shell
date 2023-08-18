@@ -6,7 +6,7 @@
  * @line: line to free
  * Return: None
 */
-void _fork(char *stk[], char *av[], char *line, char *envp[], char *argv[])
+void _fork(char *stk[], char *av[], char *envp[], char *argv[])
 {
 	pid_t pid;
 	int a;

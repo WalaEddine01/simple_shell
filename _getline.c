@@ -6,10 +6,11 @@
  * @stream: stream of line to read
  * Return: None
  */
-char *_getline(char *lineptr, size_t s, FILE *stream)
+char *_getline(char *lineptr)
 {
 	char *line = NULL;
 	ssize_t read;
+	size_t s;
 
 	read = getline(&line, &s, stdin);
 	if (read == -1)
