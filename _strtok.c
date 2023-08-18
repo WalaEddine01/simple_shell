@@ -17,6 +17,7 @@ char **_strtok(char *line, char *stk[])
 		token = strtok(NULL, " ");
 		i++;
 	}
+	stk[i] = NULL;
 	i = 0;
 	return (stk);
 }
