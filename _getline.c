@@ -21,7 +21,7 @@ char *_getline(char *lineptr)
 	{
 		line[read - 1] = '\0';
 	}
-	lineptr = malloc(_strlen(line) + 1);
+	lineptr = malloc(sizeof(char) * (strlen(line) + 1));
 	if (lineptr == NULL)
 	{
 		perror("malloc");

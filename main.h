@@ -15,12 +15,15 @@
 int _putchar(char c);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
-int _strcmp(char *s1, char *s2);
 char *_strdup(char *str);
 void _puts(char *str);
 char *_getline(char *lineptr);
 void _fork(char *stk[], char *av[], char *envp[], char *argv[]);
 char **_strtok(char *line, char *stk[]);
 void _fork2(char *stk[], char *av[], char *envp[], char *argv[]);
+char *_which(char *command, char **env);
+char *_getenv(char *name, char **envp);
+char *_strcat(char *dest, char *src);
+int _strcmp(char *s1, char *s2, int n);
 
 #endif

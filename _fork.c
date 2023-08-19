@@ -15,7 +15,7 @@ void _fork(char *stk[], char *av[], char *envp[], char *argv[])
 	pid = fork();
 	if (pid == 0)
 	{
-		execve(stk[0], av, envp);
+		execve(stk[0], stk, envp);
 		perror(argv[0]);
 		exit(1);
 	}
