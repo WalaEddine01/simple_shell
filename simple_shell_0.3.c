@@ -8,7 +8,7 @@
  */
 int main(int argc, char *argv[], char *envp[])
 {
-	char *stk[10], *line = NULL;
+	char *stk[10], *av[] = {NULL}, *line = NULL, *cmd;
 
 	if (argc != 1)
 	{
@@ -18,12 +18,18 @@ int main(int argc, char *argv[], char *envp[])
 	{
 		_puts("$ ");
 		line = _getline(line);
-		_strtok(line, stk);
-		if (stk[1] != NULL)
-			_fork(stk, stk, envp, argv);
-		else
-			_fork2(stk, stk, envp, argv);
+		cmd = _which(line, envp);
+		if(cmd == NULL)
+		{
+			_fork(stk, av, envp, argv);
+			free(cmd);
+			free(line);
+			continue;
+		}
+		_strtok(cmd, stk);
+		_fork(stk, av, envp, argv);
+		free(cmd);
+		free(line);
 	}
-	free(line);
 	return (0);
 }
