@@ -17,10 +17,8 @@ char *_getenv(char *name, char **envp)
 		{
 			token = strtok(NULL, "=");
 			value = _strdup(token);
-			free(env);
 			return (value);
 		}
-		free(env);
 		envp++;
 	}
 	return (NULL);

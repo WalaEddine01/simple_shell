@@ -18,11 +18,19 @@ int main(int argc, char *argv[], char *envp[])
 	{
 		_puts("$ ");
 		line = _getline(line);
+		if (_strcmp(line, "\n", _strlen(line)) == 0)
+		{
+			stk[0] = "\n";
+			free(line);
+			continue;
+		}
 		_strtok(line, stk);
 		if (stk[1] != NULL)
 			_fork(stk, stk, envp, argv);
 		else
 			_fork2(stk, stk, envp, argv);
+		free(line);
 	}
 	free(line);
 	return (0);
+}
