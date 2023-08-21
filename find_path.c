@@ -7,9 +7,7 @@
 */
 char *_which(char *command, char **env)
 {
-	char *path = _getenv("PATH", env);
-	char *token;
-	char *full_path = NULL;
+	char *path = _getenv("PATH", env), *token, *full_path = NULL;
 	struct stat st;
 	char *command_copy = strdup(command);
 	char *command_name = strtok(command_copy, " ");
@@ -18,12 +16,15 @@ char *_which(char *command, char **env)
 	token = strtok(path, ":");
 	while (token != NULL)
 	{
-		full_path = malloc(strlen(token) + 1 + strlen(command_name) + 1);
+		full_path = malloc(sizeof(char) * 50);
 		if (full_path == NULL)
 		{
 			perror("malloc");
 			free(command_name);
+			free(command2);
+			free(command_copy);
 			free(path);
+			free(command);
 			exit(1);
 		}
 		_strcpy(full_path, token);
@@ -43,7 +44,7 @@ char *_which(char *command, char **env)
 		free(full_path);
 		token = strtok(NULL, ":");
 	}
-	free(token);
+	free(command_copy);
 	free(path);
 	return (_strdup(command));
 }

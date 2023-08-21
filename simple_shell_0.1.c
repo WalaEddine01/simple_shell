@@ -9,6 +9,7 @@
 int main(int argc, char *argv[], char *envp[])
 {
 	char *stk[10], *av[] = {NULL}, *line = NULL;
+
 	if (argc != 1)
 	{
 		return (0);
