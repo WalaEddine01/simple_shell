@@ -11,23 +11,39 @@ char *_which(char *command, char **env)
 	char *token;
 	char *full_path = NULL;
 	struct stat st;
+	char *command_copy = strdup(command);
+	char *command_name = strtok(command_copy, " ");
+	char *command2 = strtok(NULL, " ");
 
 	token = strtok(path, ":");
 	while (token != NULL)
 	{
-		full_path = malloc(_strlen(token) + 1 + _strlen(command) + 1);
+		full_path = malloc(strlen(token) + 1 + strlen(command_name) + 1);
 		if (full_path == NULL)
 		{
 			perror("malloc");
+			free(command_name);
+			free(path);
 			exit(1);
 		}
 		_strcpy(full_path, token);
 		_strcat(full_path, "/");
-		_strcat(full_path, command);
+		_strcat(full_path, command_name);
 		if (stat(full_path, &st) == 0)
+		{
+			if (command2 != NULL)
+			{
+				strcat(full_path, " ");
+				strcat(full_path, command2);
+			}
+			free(command_copy);
+			free(path);
 			return (full_path);
+		}
 		free(full_path);
 		token = strtok(NULL, ":");
 	}
-	return (NULL);
+	free(token);
+	free(path);
+	return (_strdup(command));
 }

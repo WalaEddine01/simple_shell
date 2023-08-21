@@ -8,10 +8,8 @@
  */
 int main(int argc, char *argv[], char *envp[])
 {
-	char *stk[10], *av[] = {NULL}, *line = NULL, *cmd = NULL;
-	int test;
+	char *stk[10], *line = NULL;
 
-	stk[0] = NULL;
 	if (argc != 1)
 	{
 		return (0);
@@ -20,26 +18,19 @@ int main(int argc, char *argv[], char *envp[])
 	{
 		_puts("$ ");
 		line = _getline(line);
-		test = shexit(line);
-		if (test == 0)
+		if (_strcmp(line, "\n", _strlen(line)) == 0)
 		{
 			stk[0] = "\n";
 			free(line);
-			free(cmd);
 			continue;
 		}
-		cmd = _which(line, envp);
-		if(cmd == NULL)
-		{
-			_fork(stk, av, envp, argv);
-			free(line);
-			free(cmd);
-			continue;
-		}
-		_strtok(cmd, stk);
-		_fork(stk, stk, envp, argv);
+		_strtok(line, stk);
+		if (stk[1] != NULL)
+			_fork(stk, stk, envp, argv);
+		else
+			_fork2(stk, stk, envp, argv);
+		free(line);
 	}
-	free(cmd);
 	free(line);
 	return (0);
 }
