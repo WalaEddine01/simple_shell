@@ -9,7 +9,7 @@
 int main(int argc, char *argv[], char *envp[])
 {
 	char *stk[10], *av[] = {NULL}, *line = NULL, *cmd = NULL;
-	int test;
+	int exit;
 
 	stk[0] = NULL;
 	if (argc != 1)
@@ -20,8 +20,8 @@ int main(int argc, char *argv[], char *envp[])
 	{
 		_puts("$ ");
 		line = _getline(line);
-		test = shexit(line);
-		if (test == 0)
+		exit = shexit(line);
+		if (exit == 0)
 		{
 			stk[0] = "\n";
 			free(line);
