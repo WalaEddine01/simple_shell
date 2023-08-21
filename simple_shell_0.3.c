@@ -29,7 +29,7 @@ int main(int argc, char *argv[], char *envp[])
 			continue;
 		}
 		cmd = _which(line, envp);
-		if(cmd == NULL)
+		if (cmd == NULL)
 		{
 			_fork(stk, av, envp, argv);
 			free(line);
