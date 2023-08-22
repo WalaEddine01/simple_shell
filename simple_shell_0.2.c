@@ -8,8 +8,7 @@
  */
 int main(int argc, char *argv[], char *envp[])
 {
-	char *stk[10], *av[] = {NULL}, *line = NULL;
-	int space;
+	char *stk[10], *line = NULL;
 
 	if (argc != 1)
 	{
@@ -19,14 +18,18 @@ int main(int argc, char *argv[], char *envp[])
 	{
 		_puts("$ ");
 		line = _getline(line);
-		space = test_white_space(line);
-		if (space == 1)
+		if (_strcmp(line, "\n", _strlen(line)) == 0)
 		{
 			stk[0] = "\n";
+			free(line);
 			continue;
 		}
 		_strtok(line, stk);
-		_fork2(stk, av, envp, argv);
+		if (stk[1] != NULL)
+			_fork(stk, stk, envp, argv);
+		else
+			_fork2(stk, stk, envp, argv);
+		free(line);
 	}
 	free(line);
 	return (0);
