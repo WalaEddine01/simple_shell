@@ -15,9 +15,10 @@ void test_free(int n, ...)
 	{
 		void **ptr = va_arg(args, void **);
 
-		if (*ptr != NULL)
+		if (*ptr != NULL && ptr != NULL)
 		{
 			free(*ptr);
+			*ptr = NULL;
 		}
 	}
 	va_end(args);

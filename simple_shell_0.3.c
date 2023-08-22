@@ -21,7 +21,7 @@ int main(int argc, char *argv[], char *envp[])
 		_puts("$ ");
 		line = _getline(line);
 		ext = shexit(line);
-		if (exit == 0)
+		if (ext == 0)
 		{
 			stk[0] = "\n";
 			free(line);
