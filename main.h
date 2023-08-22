@@ -25,5 +25,8 @@ char *_which(char *command, char **env);
 char *_getenv(char *name, char **envp);
 char *_strcat(char *dest, char *src);
 int _strcmp(char *s1, char *s2, int n);
+int shexit(char *line);
+void test_free(int n, ...);
+int test_white_space(const char *str);
 
 #endif

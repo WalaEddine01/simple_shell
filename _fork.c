@@ -15,7 +15,7 @@ void _fork(char *stk[], char *av[], char *envp[], char *argv[])
 	pid = fork();
 	if (pid == 0)
 	{
-		execve(stk[0], stk, envp);
+		execve(stk[0], av, envp);
 		perror(argv[0]);
 		exit(1);
 	}
@@ -47,13 +47,13 @@ void _fork2(char *stk[], char *av[], char *envp[], char *argv[])
 	{
 		if (stk[1] != NULL)
 		{
-			execve(stk[1], av, envp);
+			execve("ERROR", av, envp);
 			perror(argv[0]);
 			exit(1);
 		}
 		else
 		{
-			execve(stk[0], av, envp);
+			execve(stk[0], av, NULL);
 			perror(argv[0]);
 			exit(1);
 		}

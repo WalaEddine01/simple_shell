@@ -17,11 +17,11 @@ char *_getenv(char *name, char **envp)
 		{
 			token = strtok(NULL, "=");
 			value = _strdup(token);
-			free(env);
+			test_free(1, &env);
 			return (value);
 		}
-		free(env);
 		envp++;
 	}
+	test_free(1, &env);
 	return (NULL);
 }
