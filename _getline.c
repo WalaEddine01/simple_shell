@@ -28,7 +28,9 @@ char *_getline(char *lineptr)
 		free(line);
 		exit(1);
 	}
+
 	_strcpy(lineptr, line);
 	free(line);
+
 	return (lineptr);
 }

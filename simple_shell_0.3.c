@@ -9,7 +9,7 @@
 int main(int argc, char *argv[], char *envp[])
 {
 	char *stk[10], *av[] = {NULL}, *line = NULL, *cmd = NULL;
-	int exit;
+	int ext;
 
 	stk[0] = NULL;
 	if (argc != 1)
@@ -20,7 +20,7 @@ int main(int argc, char *argv[], char *envp[])
 	{
 		_puts("$ ");
 		line = _getline(line);
-		exit = shexit(line);
+		ext = shexit(line);
 		if (exit == 0)
 		{
 			stk[0] = "\n";
@@ -37,7 +37,7 @@ int main(int argc, char *argv[], char *envp[])
 		_strtok(cmd, stk);
 		_fork(stk, stk, envp, argv);
 	}
-	if (cmd != NULL)		
+	if (cmd != NULL)
 		free(cmd);
 	free(line);
 	return (0);
