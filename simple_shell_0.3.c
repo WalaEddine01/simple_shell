@@ -9,7 +9,7 @@
 int main(int argc, char *argv[], char *envp[])
 {
 	char *stk[10], *av[] = {NULL}, *line = NULL, *cmd = NULL;
-	int exit, space;
+	int ext, space;
 
 	stk[0] = NULL;
 	if (argc != 1)
@@ -21,8 +21,8 @@ int main(int argc, char *argv[], char *envp[])
 		space = test_white_space(line);
 		if (space == 1)
 			continue;
-		exit = shexit(line);
-		if (exit == 0)
+		ext = shexit(line);
+		if (ext == 0)
 			continue;
 		cmd = _which(line, envp);
 		if (cmd == NULL)
