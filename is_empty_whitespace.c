@@ -5,7 +5,11 @@
  * @str: input string
  * Return: 1 if its true 0 Otherwise
  */
+<<<<<<< HEAD
 int test_white_space(char *str)
+=======
+int test_white_space(const char *str)
+>>>>>>> bbf836f2d5ff4bed7a313f9ad1fceb9a58967444
 {
 	int i = 0;
 

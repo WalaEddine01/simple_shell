@@ -9,8 +9,13 @@
 int main(int argc, char *argv[], char *envp[])
 {
 	char *stk[10], *av[] = {NULL}, *line = NULL;
+<<<<<<< HEAD
 	int space;
 
+=======
+	int space, exit;
+  
+>>>>>>> bbf836f2d5ff4bed7a313f9ad1fceb9a58967444
 	if (argc != 1)
 	{
 		return (0);
@@ -25,6 +30,16 @@ int main(int argc, char *argv[], char *envp[])
 			stk[0] = "\n";
 			continue;
 		}
+<<<<<<< HEAD
+=======
+		exit = shexit(line);
+		if (exit == 0)
+		{
+			stk[0] = "\n";
+			free(line);
+			continue;
+		}
+>>>>>>> bbf836f2d5ff4bed7a313f9ad1fceb9a58967444
 		_strtok(line, stk);
 		_fork2(stk, av, envp, argv);
 	}

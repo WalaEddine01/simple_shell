@@ -27,6 +27,10 @@ char *_strcat(char *dest, char *src);
 int _strcmp(char *s1, char *s2, int n);
 int shexit(char *line);
 void test_free(int n, ...);
+<<<<<<< HEAD
 int test_white_space(char *str);
+=======
+int test_white_space(const char *str);
+>>>>>>> bbf836f2d5ff4bed7a313f9ad1fceb9a58967444
 
 #endif
