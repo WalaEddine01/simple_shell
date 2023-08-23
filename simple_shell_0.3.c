@@ -6,7 +6,7 @@
  * @envp: array of strings environments
  * Return: 0 or -1
  */
-int main(int argc, char *argv[], char **envp)
+int main(int argc, char *argv[])
 {
 	char *stk[10], *line = NULL, *cmd = NULL;
 	int ext, space;
@@ -16,7 +16,6 @@ int main(int argc, char *argv[], char **envp)
 	signal(SIGINT, hight);
 	while (1)
 	{
-		free(cmd);
 		enter_cmd();
 		line = _getline(line);
 		if (line == NULL)
@@ -29,15 +28,16 @@ int main(int argc, char *argv[], char **envp)
 			break;
 		else if (ext == 0)
 			continue;
-		cmd = _which(line, envp);
+		cmd = _which(line, environ);
 		if (cmd == NULL)
 		{
 			free(line);
-			_fork(stk, stk, envp, argv);
+			_fork(stk, stk, environ, argv);
 			continue;
 		}
 		_strtok(cmd, stk);
 		_fork(stk, stk, environ, argv);
+		free(cmd);
 	}
 	free(line);
 	return (0);
