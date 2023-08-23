@@ -30,7 +30,8 @@ int main(int argc, char *argv[], char **envp)
 		cmd = _which(line, envp);
 		if (cmd == NULL)
 		{
-			free(line);	
+			free(line);
+			_fork(stk, av, envp, argv);
 			continue;
 		}
 		_strtok(cmd, stk);

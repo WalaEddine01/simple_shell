@@ -13,12 +13,12 @@ char *_getline(char *lineptr)
 	reada = getline(&line, &s, stdin);
 	if (reada < 0 && high.interactive_mod)
 	{
-		free (line);
+		free(line);
 		write(STDERR_FILENO, "\n", 1);
 		exit(1);
 	}
 	if (reada == -1)
-	{	
+	{
 		free(line);
 		return (NULL);
 	}
