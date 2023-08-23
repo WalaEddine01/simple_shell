@@ -25,7 +25,10 @@ int main(int argc, char *argv[])
 			continue;
 		ext = shexit(line);
 		if (ext == 1)
-			break;
+		{
+			free(line);
+			exit(1);
+		}
 		else if (ext == 0)
 			continue;
 		cmd = _which(line, environ);
