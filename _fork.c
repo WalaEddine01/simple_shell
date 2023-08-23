@@ -34,7 +34,6 @@ void _fork(char *stk[], char *av[], char *envp[], char *argv[])
  * @stk: array of string
  * @av: array of string
  * @argv: array of strings
- * @envp: array of strings environments
  * Return: None
 */
 void _fork2(char *stk[], char *av[], char *argv[])

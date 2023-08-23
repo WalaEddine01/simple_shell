@@ -3,7 +3,6 @@
  * main - Simple shell
  * @argc: number of args
  * @argv: array of strings
- * @envp: array of strings environments
  * Return: 0 or -1
  */
 int main(int argc, char *argv[])
