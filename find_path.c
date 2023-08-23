@@ -42,7 +42,6 @@ char *_which(char *command, char **env)
 		free(full_path);
 		token = strtok(NULL, ":");
 	}
-	free(command2);
 	free(command_copy);
 	free(path);
 	return (_strdup(command));

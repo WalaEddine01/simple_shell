@@ -10,19 +10,15 @@ int main(int argc, char *argv[], char **envp)
 {
 	char *stk[10], *line = NULL, *cmd = NULL, *av[] = {NULL};
 	int ext, space;
-	(void)envp;
+	(void)argc;
 
-	if (argc < 1)
-		return (-1);
 	signal(SIGINT, hight);
 	while (1)
 	{
 		enter_cmd();
 		line = _getline(line);
 		if (line == NULL)
-		{
 			break;
-		}
 		space = test_white_space(line);
 		if (space == 1)
 			continue;
@@ -33,14 +29,14 @@ int main(int argc, char *argv[], char **envp)
 			free(line);
 			return (0);
 		}
-		cmd = _which(line, environ);
+		cmd = _which(line, envp);
 		if (cmd == NULL)
 		{
-			_fork(stk, av, environ, argv);
+			_fork(stk, av, envp, argv);
 			continue;
 		}
 		_strtok(cmd, stk);
-		_fork(stk, stk, environ, argv);
+		_fork(stk, stk, envp, argv);
 		free(cmd);
 	}
 	free(line);
