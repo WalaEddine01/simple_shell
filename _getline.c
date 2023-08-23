@@ -20,7 +20,7 @@ char *_getline(char *lineptr)
 	if (reada == -1)
 	{
 		free(line);
-		exit(1);
+		return (NULL);
 	}
 	if (line[reada - 1] == '\n')
 	{

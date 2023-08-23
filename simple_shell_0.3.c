@@ -18,20 +18,26 @@ int main(int argc, char *argv[], char **envp)
 	{
 		enter_cmd();
 		line = _getline(line);
+		if (line == NULL)
+			break;
 		space = test_white_space(line);
 		if (space == 1)
 			continue;
 		ext = shexit(line);
 		if (ext == 0)
-			continue;
+		{
+			free(cmd);
+			free(line);
+			return(0);
+		}
 		cmd = _which(line, envp);
 		if (cmd == NULL)
 		{
-			_fork(stk, av, envp, argv);
+			_fork(stk, av, environ, argv);
 			continue;
 		}
 		_strtok(cmd, stk);
-		_fork(stk, stk, envp, argv);
+		_fork(stk, stk, environ, argv);
 	}
 	free(cmd);
 	free(line);

@@ -8,11 +8,11 @@ int shexit(char *line)
 {
 	if (_strcmp(line, "exit", _strlen("exit")) == 0)
 	{
-		exit(1);
+		return (0);
 	}
 	else if (_strcmp(line, "\n", _strlen(line)) == 0)
 	{
-		return (0);
+		return (1);
 	}
 	return (2);
 }
