@@ -28,7 +28,7 @@ int main(int argc, char *argv[], char **envp)
 		{
 			free(cmd);
 			free(line);
-			return(0);
+			return (0);
 		}
 		cmd = _which(line, envp);
 		if (cmd == NULL)
