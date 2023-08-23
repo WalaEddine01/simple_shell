@@ -9,7 +9,7 @@ char *_which(char *command, char **env)
 {
 	char *path = _getenv("PATH", env), *token, *full_path = NULL;
 	struct stat st;
-	char *command_copy = strdup(command);
+	char *command_copy = _strdup(command);
 	char *command_name = strtok(command_copy, " ");
 	char *command2 = strtok(NULL, " ");
 
@@ -34,8 +34,8 @@ char *_which(char *command, char **env)
 		{
 			if (command2 != NULL)
 			{
-				strcat(full_path, " ");
-				strcat(full_path, command2);
+				_strcat(full_path, " ");
+				_strcat(full_path, command2);
 			}
 			free(command_copy);
 			free(path);

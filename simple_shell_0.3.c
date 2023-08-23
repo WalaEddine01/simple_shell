@@ -10,11 +10,13 @@ int main(int argc, char *argv[], char **envp)
 {
 	char *stk[10], *av[] = {NULL}, *line = NULL, *cmd = NULL;
 	int ext, space;
-	(void)argc;
 
-	stk[0] = NULL;
+	if (argc < 1)
+		return (-1);
+	signal(SIGINT, hight);
 	while (1)
 	{
+		enter_cmd();
 		line = _getline(line);
 		if (line == NULL)
 			break;

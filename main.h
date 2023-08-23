@@ -11,10 +11,18 @@
 #include <stdarg.h>
 #include <limits.h>
 #include <sys/wait.h>
+#include <stdbool.h>
 
 extern char **environ;
 
+struct high
+{
+	bool interactive_mod;
+} high;
 
+
+void enter_cmd(void);
+void hight(int m);
 int _putchar(char c);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
