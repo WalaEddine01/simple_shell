@@ -7,19 +7,19 @@
 char *_getline(char *lineptr)
 {
 	char *line = NULL;
-	ssize_t read;
+	ssize_t reada;
 	size_t s;
 
-	read = getline(&line, &s, stdin);
-	if (read == -1)
+	reada = getline(&line, &s, stdin);
+	if (reada == -1)
 	{
 		perror("getline");
 		free(line);
 		exit(1);
 	}
-	if (line[read - 1] == '\n')
+	if (line[reada - 1] == '\n')
 	{
-		line[read - 1] = '\0';
+		line[reada - 1] = '\0';
 	}
 	lineptr = malloc(sizeof(char) * (strlen(line) + 1));
 	if (lineptr == NULL)
