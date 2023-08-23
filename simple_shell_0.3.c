@@ -8,7 +8,7 @@
  */
 int main(int argc, char *argv[])
 {
-	char *stk[10], *line = NULL, *cmd = NULL;
+	char *stk[10], *line = NULL, *cmd = NULL, *av[] = {NULL};
 	int ext, space;
 
 	if (argc < 1)
@@ -25,17 +25,14 @@ int main(int argc, char *argv[])
 			continue;
 		ext = shexit(line);
 		if (ext == 1)
-		{
-			free(line);
-			exit(1);
-		}
+			break;
 		else if (ext == 0)
 			continue;
-		cmd = _which(line, environ);
+		cmd = _which(line, envp);
 		if (cmd == NULL)
 		{
 			free(line);
-			_fork(stk, stk, environ, argv);
+			_fork(stk, av, environ, argv);
 			continue;
 		}
 		_strtok(cmd, stk);
