@@ -12,6 +12,9 @@
 #include <limits.h>
 #include <sys/wait.h>
 
+extern char **environ;
+
+
 int _putchar(char c);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
