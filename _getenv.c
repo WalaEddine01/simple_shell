@@ -21,7 +21,8 @@ char *_getenv(char *name, char **envp)
 			return (value);
 		}
 		envp++;
+		free(env);
 	}
-	free(env);
+	free(name);
 	return (NULL);
 }

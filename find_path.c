@@ -20,11 +20,8 @@ char *_which(char *command, char **env)
 		if (full_path == NULL)
 		{
 			perror("malloc");
-			free(command_name);
-			free(command2);
 			free(command_copy);
 			free(path);
-			free(command);
 			exit(1);
 		}
 		_strcpy(full_path, token);
@@ -39,11 +36,13 @@ char *_which(char *command, char **env)
 			}
 			free(command_copy);
 			free(path);
+			free(command2);
 			return (full_path);
 		}
 		free(full_path);
 		token = strtok(NULL, ":");
 	}
+	free(command2);
 	free(command_copy);
 	free(path);
 	return (_strdup(command));

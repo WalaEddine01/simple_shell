@@ -19,7 +19,9 @@ int main(int argc, char *argv[], char **envp)
 		enter_cmd();
 		line = _getline(line);
 		if (line == NULL)
+		{
 			break;
+		}
 		space = test_white_space(line);
 		if (space == 1)
 			continue;
@@ -38,8 +40,8 @@ int main(int argc, char *argv[], char **envp)
 		}
 		_strtok(cmd, stk);
 		_fork(stk, stk, envp, argv);
+		free(cmd);
 	}
-	free(cmd);
-	free(line);
+        free(line);
 	return (0);
 }
