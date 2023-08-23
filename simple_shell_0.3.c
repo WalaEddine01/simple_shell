@@ -36,7 +36,7 @@ int main(int argc, char *argv[], char **envp)
 			continue;
 		}
 		_strtok(cmd, stk);
-		_fork(stk, stk, envp, argv);
+		_fork(stk, stk, environ, argv);
 		free(cmd);
 	}
 	free(line);
