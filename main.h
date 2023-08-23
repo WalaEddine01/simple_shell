@@ -20,7 +20,7 @@ void _puts(char *str);
 char *_getline(char *lineptr);
 void _fork(char *stk[], char *av[], char *envp[], char *argv[]);
 char **_strtok(char *line, char *stk[]);
-void _fork2(char *stk[], char *av[], char *envp[], char *argv[]);
+void _fork2(char *stk[], char *av[], char *argv[]);
 char *_which(char *command, char **env);
 char *_getenv(char *name, char **envp);
 char *_strcat(char *dest, char *src);

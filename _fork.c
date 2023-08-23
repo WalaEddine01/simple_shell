@@ -37,7 +37,7 @@ void _fork(char *stk[], char *av[], char *envp[], char *argv[])
  * @envp: array of strings environments
  * Return: None
 */
-void _fork2(char *stk[], char *av[], char *envp[], char *argv[])
+void _fork2(char *stk[], char *av[], char *argv[])
 {
 	pid_t pid;
 	int a;
@@ -47,7 +47,7 @@ void _fork2(char *stk[], char *av[], char *envp[], char *argv[])
 	{
 		if (stk[1] != NULL)
 		{
-			execve("ERROR", av, envp);
+			execve("ERROR", av, NULL);
 			perror(argv[0]);
 			exit(1);
 		}
