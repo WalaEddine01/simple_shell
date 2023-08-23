@@ -26,6 +26,7 @@ char *_getline(char *lineptr)
 	{
 		line[reada - 1] = '\0';
 	}
+	free(lineptr);
 	lineptr = malloc(sizeof(char) * (_strlen(line) + 1));
 	if (lineptr == NULL)
 	{
