@@ -9,7 +9,7 @@
 int main(int argc, char *argv[], char **envp)
 {
 	char *stk[10], *av[] = {NULL}, *line = NULL, *cmd = NULL;
-	int ext, space;
+	int ext, space, i = 0;
 
 	if (argc < 1)
 		return (-1);
@@ -18,7 +18,12 @@ int main(int argc, char *argv[], char **envp)
 	{
 		enter_cmd();
 		line = _getline(line);
-		if (line == NULL)
+		if (line == NULL && i == 0)
+		{
+			_puts("\n");
+			break;
+		}
+		if (i == 1)
 			break;
 		space = test_white_space(line);
 		if (space == 1)
@@ -37,6 +42,7 @@ int main(int argc, char *argv[], char **envp)
 		_fork(stk, stk, environ, argv);
 		free(cmd);
 		free(line);
+		i++;
 	}
 	return (0);
 }

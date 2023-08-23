@@ -12,8 +12,9 @@ char *_getline(char *lineptr)
 
 	reada = getline(&line, &s, stdin);
 	if (reada == -1)
-	{
-		exit(1);
+	{	
+		free(line);
+		return (NULL);
 	}
 	if (line[reada - 1] == '\n')
 	{
