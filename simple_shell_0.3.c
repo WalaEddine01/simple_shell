@@ -26,14 +26,14 @@ int main(int argc, char *argv[], char **envp)
 			continue;
 		ext = shexit(line);
 		if (ext == 1)
-		{	
 			break;
-		}
+		else if (ext == 0)
+			continue;
 		cmd = _which(line, envp);
 		if (cmd == NULL)
 		{
 			free(line);
-			_fork(stk, NULL, envp, argv);
+			_fork(stk, stk, envp, argv);
 			continue;
 		}
 		_strtok(cmd, stk);
