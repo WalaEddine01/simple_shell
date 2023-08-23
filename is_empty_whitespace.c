@@ -5,7 +5,7 @@
  * @str: input string
  * Return: 1 if its true 0 Otherwise
  */
-int test_white_space(const char *str)
+int test_white_space(char *str)
 {
 	int i = 0;
 
