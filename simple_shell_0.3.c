@@ -22,16 +22,14 @@ int main(int argc, char *argv[], char **envp)
 			break;
 		space = test_white_space(line);
 		if (space == 1)
-		{
 			continue;
-		}
 		ext = shexit(line);
 		if (ext == 1)
 			break;
 		cmd = _which(line, envp);
 		if (cmd == NULL)
 		{
-			_fork(stk, av, environ, argv);
+			_fork(stk, av, envp, argv);
 			continue;
 		}
 		_strtok(cmd, stk);
