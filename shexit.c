@@ -8,7 +8,7 @@ int shexit(char *line)
 {
 	if (_strcmp(line, "exit", _strlen("exit")) == 0)
 	{
-		exit(1);
+		return (1);
 	}
 	else if (_strcmp(line, "\n", _strlen(line)) == 0)
 	{

@@ -25,13 +25,15 @@ int main(int argc, char *argv[], char **envp)
 		if (space == 1)
 			continue;
 		ext = shexit(line);
-		if (ext == 0)
-			continue;
+		if (ext == 1)
+		{	
+			break;
+		}
 		cmd = _which(line, envp);
 		if (cmd == NULL)
 		{
 			free(line);
-			_fork(stk, av, envp, argv);
+			_fork(stk, NULL, envp, argv);
 			continue;
 		}
 		_strtok(cmd, stk);
