@@ -29,12 +29,13 @@ int main(int argc, char *argv[], char **envp)
 		cmd = _which(line, envp);
 		if (cmd == NULL)
 		{
-			_fork(stk, av, envp, argv);
+			_fork2(stk, av, argv);
 			continue;
 		}
 		_strtok(cmd, stk);
 		_fork(stk, stk, environ, argv);
 	}
+	free(cmd);
 	free(line);
 	return (0);
 }
