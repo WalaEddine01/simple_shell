@@ -10,9 +10,5 @@ int shexit(char *line)
 	{
 		return (1);
 	}
-	else if (_strcmp(line, "\n", _strlen(line)) == 0)
-	{
-		return (0);
-	}
 	return (2);
 }
