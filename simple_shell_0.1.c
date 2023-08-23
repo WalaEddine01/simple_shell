@@ -8,7 +8,7 @@
  */
 int main(int argc, char *argv[])
 {
-	char *stk[10], *av[] = {NULL}, *line = NULL;
+	char *stk[10], *av[] = {" ", NULL}, *line = NULL;
 	(void)argc;
 
 	while (1)
