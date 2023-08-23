@@ -6,7 +6,7 @@
  * @envp: array of strings environments
  * Return: 0 or -1
  */
-int main(int argc, char *argv[])
+int main(int argc, char *argv[], char **envp)
 {
 	char *stk[10], *line = NULL, *cmd = NULL, *av[] = {NULL};
 	int ext, space;
