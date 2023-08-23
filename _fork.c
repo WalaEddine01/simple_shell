@@ -52,7 +52,7 @@ void _fork2(char *stk[], char *av[], char *argv[])
 		}
 		else
 		{
-			execve(stk[0], av, NULL);
+			execve(stk[0], av, environ);
 			perror(argv[0]);
 			exit(1);
 		}
