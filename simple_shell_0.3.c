@@ -42,6 +42,6 @@ int main(int argc, char *argv[], char **envp)
 		_fork(stk, stk, envp, argv);
 		free(cmd);
 	}
-        free(line);
+	free(line);
 	return (0);
 }
