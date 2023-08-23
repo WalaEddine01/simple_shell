@@ -10,8 +10,9 @@ int main(int argc, char *argv[], char **envp)
 {
 	char *stk[10], *line = NULL, *cmd = NULL, *av[] = {NULL};
 	int ext, space;
-	(void)argc;
 
+	if (argc > 1)
+		return (0);
 	signal(SIGINT, hight);
 	while (1)
 	{
@@ -36,7 +37,7 @@ int main(int argc, char *argv[], char **envp)
 			continue;
 		}
 		_strtok(cmd, stk);
-		_fork(stk, stk, environ, argv);
+		_fork(stk, stk, envp, argv);
 		free(cmd);
 	}
 	free(line);
