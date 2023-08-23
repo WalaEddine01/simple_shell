@@ -17,6 +17,10 @@ char *_getline(char *lineptr)
 		free(line);
 		exit(1);
 	}
+	if (line[read - 1] == '\n')
+	{
+		line[read - 1] = '\0';
+	}
 	lineptr = malloc(sizeof(char) * (strlen(line) + 1));
 	if (lineptr == NULL)
 	{
