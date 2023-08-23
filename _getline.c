@@ -20,13 +20,12 @@ char *_getline(char *lineptr)
 	if (reada == -1)
 	{
 		free(line);
-		return (NULL);
+		exit(1);
 	}
 	if (line[reada - 1] == '\n')
 	{
 		line[reada - 1] = '\0';
 	}
-	free(lineptr);
 	lineptr = malloc(sizeof(char) * (_strlen(line) + 1));
 	if (lineptr == NULL)
 	{
