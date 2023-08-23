@@ -9,7 +9,6 @@
 int main(int argc, char *argv[], char *envp[])
 {
 	char *stk[10], *av[] = {NULL}, *line = NULL;
-	int space;
 
 	if (argc != 1)
 	{
@@ -19,12 +18,6 @@ int main(int argc, char *argv[], char *envp[])
 	{
 		_puts("$ ");
 		line = _getline(line);
-		space = test_white_space(line);
-		if (space == 1)
-		{
-			stk[0] = "\n";
-			continue;
-		}
 		_strtok(line, stk);
 		_fork2(stk, av, envp, argv);
 	}
