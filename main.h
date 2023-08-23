@@ -15,6 +15,10 @@
 
 extern char **environ;
 
+/**
+ * struct high - helper functio
+ * @interactive_mod: interactive mode
+ */
 struct high
 {
 	bool interactive_mod;

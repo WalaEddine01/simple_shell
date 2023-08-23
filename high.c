@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- *high- it keeps track is interactive mode
+ *hight - it keeps track is interactive mode
  *@m: the signal number
  *Return: nothing
  */
