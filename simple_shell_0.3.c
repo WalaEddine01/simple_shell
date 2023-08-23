@@ -8,7 +8,7 @@
  */
 int main(int argc, char *argv[], char **envp)
 {
-	char *stk[10], *av[] = {NULL}, *line = NULL, *cmd = NULL;
+	char *stk[10], *line = NULL, *cmd = NULL;
 	int ext, space;
 
 	if (argc < 1)
@@ -16,6 +16,7 @@ int main(int argc, char *argv[], char **envp)
 	signal(SIGINT, hight);
 	while (1)
 	{
+		free(cmd);
 		enter_cmd();
 		line = _getline(line);
 		if (line == NULL)
@@ -29,14 +30,12 @@ int main(int argc, char *argv[], char **envp)
 		cmd = _which(line, envp);
 		if (cmd == NULL)
 		{
-			free(line);
-			_fork(stk, av, environ, argv);
+			free(line);	
 			continue;
 		}
 		_strtok(cmd, stk);
 		_fork(stk, stk, environ, argv);
-		free(cmd);
-		free(line);
 	}
+	free(line);
 	return (0);
 }
