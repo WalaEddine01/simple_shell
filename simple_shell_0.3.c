@@ -10,6 +10,7 @@ int main(int argc, char *argv[], char **envp)
 {
 	char *stk[10], *line = NULL, *cmd = NULL, *av[] = {NULL};
 	int ext, space;
+	(void)envp;
 
 	if (argc < 1)
 		return (-1);
@@ -32,14 +33,14 @@ int main(int argc, char *argv[], char **envp)
 			free(line);
 			return (0);
 		}
-		cmd = _which(line, envp);
+		cmd = _which(line, environ);
 		if (cmd == NULL)
 		{
-			_fork(stk, av, envp, argv);
+			_fork(stk, av, environ, argv);
 			continue;
 		}
 		_strtok(cmd, stk);
-		_fork(stk, stk, envp, argv);
+		_fork(stk, stk, environ, argv);
 		free(cmd);
 	}
 	free(line);
