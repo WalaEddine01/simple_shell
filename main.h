@@ -26,7 +26,7 @@ struct high
 
 
 void enter_cmd(void);
-void hight(int m);
+void hight(int no);
 int _putchar(char c);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);

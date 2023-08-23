@@ -33,11 +33,11 @@ int main(int argc, char *argv[], char **envp)
 		cmd = _which(line, envp);
 		if (cmd == NULL)
 		{
-			_fork(stk, av, environ, argv);
+			_fork(stk, av, envp, argv);
 			continue;
 		}
 		_strtok(cmd, stk);
-		_fork(stk, stk, environ, argv);
+		_fork(stk, stk, envp, argv);
 	}
 	free(cmd);
 	free(line);
