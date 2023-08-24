@@ -7,7 +7,7 @@
  */
 int main(int argc, char *argv[])
 {
-	char *stk[10], *line = NULL;
+	char *stk[10], *line = NULL, *av[] = {NULL};
 	int ext, space;
 	(void)argc;
 
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 			simicolen(line, environ, argv);
 			continue;
 		}
-		exe(stk, NULL, environ, argv, line);
+		exe(stk, av, environ, argv, line);
 	}
 	free(line);
 	return (0);
