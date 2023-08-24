@@ -7,7 +7,7 @@
  */
 int main(int argc, char *argv[])
 {
-	char *stk[10], *line = NULL, *av[] = {"",NULL};
+	char *stk[10], *line = NULL, *av[] = {NULL};
 	int ext, space;
 	(void)argc;
 

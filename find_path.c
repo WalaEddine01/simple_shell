@@ -12,7 +12,7 @@ char *_which(char *command, char **env)
 	char *command_copy = _strdup(command);
 	char *command_name = strtok(command_copy, " ");
 	char *command2 = strtok(NULL, " ");
-	
+
 	token = strtok(path, ":");
 	while (token != NULL)
 	{
