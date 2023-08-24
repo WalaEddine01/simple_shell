@@ -13,8 +13,6 @@ char *_which(char *command, char **env)
 	char *command_name = strtok(command_copy, " ");
 	char *command2 = strtok(NULL, " ");
 	
-	if (path == NULL)
-		return (NULL);
 	token = strtok(path, ":");
 	while (token != NULL)
 	{
@@ -24,7 +22,7 @@ char *_which(char *command, char **env)
 			perror("malloc");
 			free(command_copy);
 			free(path);
-			exit(2);
+			exit(1);
 		}
 		_strcpy(full_path, token);
 		_strcat(full_path, "/");
