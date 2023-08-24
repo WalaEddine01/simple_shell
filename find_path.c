@@ -20,6 +20,7 @@ char *_which(char *command, char **env)
 		if (full_path == NULL)
 		{
 			perror("malloc");
+			free(token);
 			free(command_copy);
 			free(path);
 			exit(1);
@@ -36,7 +37,6 @@ char *_which(char *command, char **env)
 			}
 			free(command_copy);
 			free(path);
-			free(command2);
 			return (full_path);
 		}
 		free(full_path);

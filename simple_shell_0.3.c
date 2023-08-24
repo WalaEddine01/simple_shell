@@ -30,6 +30,9 @@ int main(int argc, char *argv[], char **envp)
 			free(line);
 			exit(0);
 		}
+		if (line[0] == '#')
+			continue;
+		line = strtok(line, "#");
 		cmd = _which(line, envp);
 		if (cmd == NULL)
 		{
