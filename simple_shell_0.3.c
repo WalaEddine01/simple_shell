@@ -10,9 +10,8 @@ int main(int argc, char *argv[], char **envp)
 {
 	char *stk[10], *line = NULL, *cmd = NULL, *av[] = {NULL};
 	int ext, space;
+	(void)argc;
 
-	if (argc > 1)
-		return (0);
 	signal(SIGINT, hight);
 	while (1)
 	{
@@ -27,12 +26,16 @@ int main(int argc, char *argv[], char **envp)
 		if (ext == 0)
 		{
 			free(cmd);
-			free(line);
 			exit(0);
 		}
 		if (line[0] == '#')
 			continue;
 		line = strtok(line, "#");
+		if (_strchr(line, ';') != NULL || line[0] == ';')
+		{
+			simicolen(line, envp, argv);
+			continue;
+		}
 		cmd = _which(line, envp);
 		if (cmd == NULL)
 		{
