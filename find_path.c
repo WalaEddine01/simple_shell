@@ -20,10 +20,9 @@ char *_which(char *command, char **env)
 		if (full_path == NULL)
 		{
 			perror("malloc");
-			free(token);
 			free(command_copy);
 			free(path);
-			exit(1);
+			exit(2);
 		}
 		_strcpy(full_path, token);
 		_strcat(full_path, "/");

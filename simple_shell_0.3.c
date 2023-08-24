@@ -6,7 +6,7 @@
  * @envp: array of strings environments
  * Return: 0 or -1
  */
-int main(int argc, char *argv[], char **envp)
+int main(int argc, char *argv[])
 {
 	char *stk[10], *line = NULL, *cmd = NULL, *av[] = {NULL};
 	int ext, space;
@@ -26,6 +26,7 @@ int main(int argc, char *argv[], char **envp)
 		if (ext == 0)
 		{
 			free(cmd);
+			free(cmd);
 			exit(0);
 		}
 		if (line[0] == '#')
@@ -33,13 +34,13 @@ int main(int argc, char *argv[], char **envp)
 		line = strtok(line, "#");
 		if (_strchr(line, ';') != NULL || line[0] == ';')
 		{
-			simicolen(line, envp, argv);
+			simicolen(line, environ, argv);
 			continue;
 		}
-		cmd = _which(line, envp);
+		cmd = _which(line, environ);
 		if (cmd == NULL)
 		{
-			_fork(stk, av, envp, argv);
+			_fork(stk, av, environ, argv);
 			continue;
 		}
 		_strtok(cmd, stk);

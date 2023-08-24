@@ -6,7 +6,7 @@
  * @argv: array of strings agument variables
  * Return: Nothing
  */
-void simicolen(char *line, char *envp[], char *argv[])
+int simicolen(char *line, char *envp[], char *argv[])
 {
 	int i = 0, j;
 	char *stk2[10], *exe[10];
@@ -34,4 +34,5 @@ void simicolen(char *line, char *envp[], char *argv[])
 		_fork(exe, exe, envp, argv);
 		i++;
 	}
+	return (2);
 }

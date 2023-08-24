@@ -32,7 +32,7 @@ int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 char *_strdup(char *str);
 void _puts(char *str);
-void simicolen(char *line, char *envp[], char *argv[]);
+int simicolen(char *line, char *envp[], char *argv[]);
 char *_getline(char *lineptr);
 void _fork(char *stk[], char *av[], char *envp[], char *argv[]);
 char **_strtok(char *line, char *stk[]);

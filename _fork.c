@@ -17,12 +17,12 @@ void _fork(char *stk[], char *av[], char *envp[], char *argv[])
 	{
 		execve(stk[0], av, envp);
 		perror(argv[0]);
-		exit(1);
+		exit(2);
 	}
 	else if (pid < 0)
 	{
 		perror("fork");
-		exit(1);
+		exit(2);
 	}
 	else
 	{
