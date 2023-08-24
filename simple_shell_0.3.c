@@ -3,12 +3,11 @@
  * main - Simple shell
  * @argc: number of args
  * @argv: array of strings
- * @envp: array of strings environments
  * Return: 0 or -1
  */
 int main(int argc, char *argv[])
 {
-	char *stk[10], *line = NULL, *cmd = NULL, *av[] = {NULL};
+	char *stk[10], *line = NULL, *av[] = {NULL};
 	int ext, space;
 	(void)argc;
 
@@ -24,20 +23,16 @@ int main(int argc, char *argv[])
 			continue;
 		ext = shexit(line);
 		if (ext == 0)
-		{
-			free(cmd);
-			free(cmd);
 			exit(0);
-		}
-		cmd = _which(line, environ);
-		if (cmd == NULL)
+		if (line[0] == '#')
+			continue;
+		line = strtok(line, "#");
+		if (_strchr(line, ';') != NULL || line[0] == ';')
 		{
-			_fork(stk, av, environ, argv);
+			simicolen(line, environ, argv);
 			continue;
 		}
-		_strtok(cmd, stk);
-		_fork(stk, stk, environ, argv);
-		free(cmd);
+		exe(stk, av, environ, argv, line);
 	}
 	free(line);
 	return (0);

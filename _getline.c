@@ -16,11 +16,10 @@ char *_getline(char *lineptr)
 		free(line);
 		free(lineptr);
 		write(STDERR_FILENO, "\n", 1);
-		exit(2);
+		exit(1);
 	}
 	if (reada == -1)
 	{
-		free(lineptr);
 		free(line);
 		return (NULL);
 	}
@@ -34,7 +33,7 @@ char *_getline(char *lineptr)
 		perror("malloc");
 		free(line);
 		free(lineptr);
-		exit(2);
+		exit(1);
 	}
 	_strcpy(lineptr, line);
 	free(line);
