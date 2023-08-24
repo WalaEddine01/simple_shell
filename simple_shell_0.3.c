@@ -29,14 +29,6 @@ int main(int argc, char *argv[])
 			free(cmd);
 			exit(0);
 		}
-		if (line[0] == '#')
-			continue;
-		line = strtok(line, "#");
-		if (_strchr(line, ';') != NULL || line[0] == ';')
-		{
-			simicolen(line, environ, argv);
-			continue;
-		}
 		cmd = _which(line, environ);
 		if (cmd == NULL)
 		{
