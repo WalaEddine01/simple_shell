@@ -20,6 +20,9 @@ int main(int argc, char *argv[], char **envp)
 		line = _getline(line);
 		if (line == NULL)
 			break;
+		if (line[0] == '#')
+			continue;
+		line = strtok(line, "#");
 		space = test_white_space(line);
 		if (space == 1)
 			continue;
