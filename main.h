@@ -33,18 +33,18 @@ char *_strcpy(char *dest, char *src);
 char *_strdup(char *str);
 void _puts(char *str);
 void simicolen(char *line, char *envp[], char *argv[]);
-void exe(char *stk[], char *av[], char *envp[], char *argv[], char *line);
+void exe(char *stk[], char *envp[], char *argv[], char *line);
+void intToString(int num, char *str);
 char *_getline(char *lineptr);
 void _fork(char *stk[], char *av[], char *envp[], char *argv[]);
 char **_strtok(char *line, char *stk[]);
-void _fork2(char *stk[], char *av[], char *argv[]);
 char *_which(char *command, char **env);
 char *_getenv(char *name, char **envp);
 char *_strcat(char *dest, char *src);
 int _strcmp(char *s1, char *s2, int n);
 int shexit(char *line);
-void test_free(int n, ...);
 int test_white_space(char *str);
 void freebuf(char **buf);
+char *strtok2(char *line);
 
 #endif

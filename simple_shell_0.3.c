@@ -7,7 +7,7 @@
  */
 int main(int argc, char *argv[])
 {
-	char *stk[10], *line = NULL, *av[] = {NULL}, *line2 = NULL;
+	char *stk[10], *line = NULL;
 	int ext, space;
 	(void)argc;
 
@@ -15,8 +15,7 @@ int main(int argc, char *argv[])
 	while (1)
 	{
 		enter_cmd();
-		line = _getline(line2);
-		line2 = _strdup(line);
+		line = _getline(line);
 		if (line == NULL)
 			break;
 		space = test_white_space(line);
@@ -27,20 +26,13 @@ int main(int argc, char *argv[])
 			exit(0);
 		if (line[0] == '#')
 			continue;
-		line = strtok(line, "#");
+		line = strtok2(line);
 		if (_strchr(line, ';') != NULL || line[0] == ';')
 		{
 			simicolen(line, environ, argv);
 			continue;
 		}
-		exe(stk, av, environ, argv, line);
-		freebuf(stk);
-		freebuf(av);
-		free(line);
+		exe(stk, environ, argv, line);
 	}
-	freebuf(stk);
-	freebuf(av);
-	free(line);
-	line = NULL;
 	return (0);
 }

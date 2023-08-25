@@ -22,7 +22,7 @@ void _fork(char *stk[], char *av[], char *envp[], char *argv[])
 	else if (pid < 0)
 	{
 		perror("fork");
-
+		exit(2);
 	}
 	else
 	{
