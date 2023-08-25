@@ -12,16 +12,10 @@ int simicolen(char *line, char *envp[], char *argv[])
 	char **stk2 = malloc(1024 * sizeof(char *));
 	char **exe = malloc(1024 * sizeof(char *));
 
-	if (line[0] == ';')
-	{
-		free(stk2);
-		free(exe);
-		return 0;
-	}
-	if (_strchr(line, ';') != NULL && line[0] != ';')
+	if (_strchr(line, ';') != NULL || line[0] == ';')
 	{
 		stk2[0] = strtok(line, ";");
-		if (stk2[0] == NULL)
+		if (stk2[0] == NULL || line[0] == ';')
 		{
 			free(exe);
 			free(stk2);
