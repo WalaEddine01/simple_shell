@@ -6,7 +6,7 @@
  * @envp: array of strings environments
  * Return: 0 or -1
  */
-int main(int argc, char *argv[])
+int main(int argc, char *argv[], char **envp)
 {
 	char *stk[10], *line = NULL, *cmd = NULL, *av[] = {NULL};
 	int ext, space;
@@ -30,14 +30,14 @@ int main(int argc, char *argv[])
 			free(line);
 			exit(0);
 		}
-		cmd = _which(line, environ);
+		cmd = _which(line, envp);
 		if (cmd == NULL)
 		{
-			_fork(stk, av, environ, argv);
+			_fork(stk, av, envp, argv);
 			continue;
 		}
 		_strtok(cmd, stk);
-		_fork(stk, stk, environ, argv);
+		_fork(stk, stk, envp, argv);
 	}
 	free(cmd);
 	free(line);
