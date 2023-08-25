@@ -14,7 +14,6 @@ char *_getline(char *lineptr)
 	if (reada < 0 && high.interactive_mod)
 	{
 		free(line);
-		free(lineptr);
 		write(STDERR_FILENO, "\n", 1);
 		exit(1);
 	}
