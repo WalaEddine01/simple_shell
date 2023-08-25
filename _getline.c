@@ -14,11 +14,13 @@ char *_getline(char *lineptr)
 	if (reada < 0 && high.interactive_mod)
 	{
 		free(line);
+		free(lineptr);
 		write(STDERR_FILENO, "\n", 1);
 		exit(1);
 	}
 	if (reada == -1)
 	{
+		free(lineptr);
 		free(line);
 		return (NULL);
 	}
@@ -26,7 +28,15 @@ char *_getline(char *lineptr)
 	{
 		line[reada - 1] = '\0';
 	}
-	lineptr = _strdup(line);
+	lineptr = malloc(sizeof(char) * (_strlen(line) + 1));
+	if (lineptr == NULL)
+	{
+		perror("malloc");
+		free(line);
+		free(lineptr);
+		exit(1);
+	}
+	_strcpy(lineptr, line);
 	free(line);
 	return (lineptr);
 }
