@@ -36,6 +36,4 @@ void simicolen(char *line, char *envp[], char *argv[])
 		_fork(exe, exe, envp, argv);
 		i++;
 	}
-	freebuf(exe);
-	freebuf(stk2);
 }

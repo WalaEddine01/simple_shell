@@ -44,7 +44,6 @@ char *_strcat(char *dest, char *src);
 int _strcmp(char *s1, char *s2, int n);
 int shexit(char *line);
 int test_white_space(char *str);
-void freebuf(char **buf);
 char *strtok2(char *line);
 
 #endif
