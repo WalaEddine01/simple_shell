@@ -1,18 +1,16 @@
 #include "main.h"
 /**
  * main - Simple shell
- * @argc: number of args
  * @argv: array of strings
+ * @argc: number of arguments
  * @envp: array of strings environments
  * Return: 0 or -1
  */
-int main(int argc, char *argv[], char **envp)
+int main(int argc __attribute__((unused)), char *argv[], char **envp)
 {
 	char *stk[10], *line = NULL, *cmd = NULL, *av[] = {NULL};
 	int ext, space;
 
-	if (argc > 1)
-		return (0);
 	signal(SIGINT, hight);
 	while (1)
 	{
@@ -25,7 +23,7 @@ int main(int argc, char *argv[], char **envp)
 		line = strtok(line, "#");
 		if (_strchr(line, ';') != NULL || line[0] == ';')
 		{
-			simicolen(line, environ, argv);
+			simicolen(line, envp, argv);
 			continue;
 		}
 		space = test_white_space(line);
