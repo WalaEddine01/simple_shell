@@ -38,8 +38,6 @@ int main(int argc, char *argv[], char **envp)
 		}
 		_strtok(cmd, stk);
 		_fork(stk, stk, envp, argv);
-		free(cmd);
-		free(line);
 	}
 	free(cmd);
 	free(line);
