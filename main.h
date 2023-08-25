@@ -45,5 +45,6 @@ int _strcmp(char *s1, char *s2, int n);
 int shexit(char *line);
 void test_free(int n, ...);
 int test_white_space(char *str);
+void freebuf(char **buf);
 
 #endif

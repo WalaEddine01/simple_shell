@@ -12,6 +12,8 @@ void simicolen(char *line, char *envp[], char *argv[])
 	char *stk2[10], *exe[10];
 
 	stk2[0] = strtok(line, ";");
+	if (stk2[0] == NULL)
+		return;
 	while (stk2[i] != NULL)
 	{
 		i++;
@@ -34,4 +36,6 @@ void simicolen(char *line, char *envp[], char *argv[])
 		_fork(exe, exe, envp, argv);
 		i++;
 	}
+	freebuf(exe);
+	freebuf(stk2);
 }

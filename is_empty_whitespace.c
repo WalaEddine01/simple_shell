@@ -10,7 +10,7 @@ int test_white_space(char *str)
 	int i = 0;
 
 	if (str == NULL)
-		return (1);
+		return (2);
 	for (i = 0; i < _strlen(str); i++)
 		if (str[i] != ' ' && str[i] != '\t' && str[i] != '\n'
 				&& str[i] != '\r')
