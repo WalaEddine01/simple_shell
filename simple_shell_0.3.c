@@ -23,6 +23,11 @@ int main(int argc, char *argv[], char **envp)
 		if (line[0] == '#')
 			continue;
 		line = strtok(line, "#");
+		if (_strchr(line, ';') != NULL || line[0] == ';')
+		{
+			simicolen(line, environ, argv);
+			continue;
+		}
 		space = test_white_space(line);
 		if (space == 1)
 			continue;
