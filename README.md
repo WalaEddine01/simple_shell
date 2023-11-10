@@ -43,7 +43,7 @@
 <br clear="both">
 
 <div align="center">
-  <img height="-15" src="https://media.licdn.com/dms/image/D5622AQEb6kKyEFO3Rg/feedshare-shrink_800/0/1693232941886?e=1701907200&v=beta&t=Y8Vl48mLu2BF6AcRj0z7hJ9qmXY5CzEYc84b6Xj-Y8E"  />
+  <img height="-15" src="[https://media.licdn.com/dms/image/D5622AQEb6kKyEFO3Rg/feedshare-shrink_800/0/1693232941886?e=1701907200&v=beta&t=Y8Vl48mLu2BF6AcRj0z7hJ9qmXY5CzEYc84b6Xj-Y8E](https://im5.ezgif.com/tmp/ezgif-5-33ac4ce557.gif)https://im5.ezgif.com/tmp/ezgif-5-33ac4ce557.gif"  />
 </div>
 
 ###
