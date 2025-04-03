@@ -1,6 +1,7 @@
 <h1 align="left">Simple Shell Project</h1>
 
 ###
+![Description]([https://raw.githubusercontent.com/your-username/your-repo/main/your-image.gif](https://drive.google.com/file/d/11dsYc9Bd-8WAc0W2d4KK0D96-9bbNM_E/view?usp=sharing))
 
 <p align="left"></p>
 
