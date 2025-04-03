@@ -1,7 +1,7 @@
 <h1 align="left">Simple Shell Project</h1>
 
 ###
-![Description]([https://github.com/WalaEddine01/simple_shell/blob/master/1693232941886.gif])
+![GIF Description](https://raw.githubusercontent.com/WalaEddine01/simple_shell/master/1693232941886.gif)
 
 <p align="left"></p>
 
